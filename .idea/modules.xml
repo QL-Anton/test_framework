@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/test-task.iml" filepath="$PROJECT_DIR$/.idea/modules/test-task.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/test-task.iml" filepath="$PROJECT_DIR$/.idea/modules/test-task.iml" group="test-task" />
       <module fileurl="file://$PROJECT_DIR$/.idea/test_framework.iml" filepath="$PROJECT_DIR$/.idea/test_framework.iml" />
     </modules>
   </component>
