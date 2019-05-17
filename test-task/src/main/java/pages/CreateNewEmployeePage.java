@@ -4,6 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import static driverManager.DriverHandler.getWebDriverWait;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 import static org.testng.Assert.assertEquals;
@@ -31,6 +34,31 @@ public class CreateNewEmployeePage extends BasePage {
     public CreateNewEmployeePage checkUserIsOnCreateNewEmployeePage() {
         getWebDriverWait().until(visibilityOfElementLocated(ADD_BUTTON_LOCATOR));
         assertTrue(wd.getCurrentUrl().contains(CREATE_EMPLOYEE_URL_PART));
+        return this;
+    }
+
+    public CreateNewEmployeePage inputToFirstNameField(String text) {
+        input(getFirstNameFieldElement(), text);
+        return this;
+    }
+
+    public CreateNewEmployeePage inputToLastNameField(String text) {
+        input(getLastNameFieldElement(), text);
+        return this;
+    }
+
+    public CreateNewEmployeePage inputToStartDateField(String text) {
+        input(getStartDateFieldElement(), text);
+        return this;
+    }
+
+    public CreateNewEmployeePage inputToEmailField(String text) {
+        input(getEmailFieldElement(), text);
+        return this;
+    }
+
+    public CreateNewEmployeePage clickAddButton() {
+        getAddButtonElement().click();
         return this;
     }
 

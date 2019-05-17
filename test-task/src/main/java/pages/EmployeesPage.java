@@ -4,6 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import static driverManager.DriverHandler.getWebDriverWait;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 import static org.testng.Assert.assertEquals;
@@ -40,6 +43,13 @@ public class EmployeesPage extends BasePage {
     public EmployeesPage clickCreateButton() {
         getCreateButtonElement().click();
         return this;
+    }
+
+    public List<String> getEmployees() {
+        return wd.findElements(By.cssSelector("ul#employee-list li"))
+                .stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
     }
 
     //region getters
