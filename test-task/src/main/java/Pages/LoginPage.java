@@ -13,7 +13,7 @@ public class LoginPage extends BasePage {
         super(wd);
     }
 
-    public void loginToApp() {
+    public void loginToCafeTown() {
         wd.get("http://cafetownsend-angular-rails.herokuapp.com/");
         type(USER_NAME_LOCATOR,"Luke");
         type(PASSWORD_LOCATOR,"Skywalker");

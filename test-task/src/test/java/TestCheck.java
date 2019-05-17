@@ -4,7 +4,9 @@ public class TestCheck extends TestBase {
 
     @Test
     private void test() {
-        pageProvider.loginPage().loginToApp();
+        pageProvider
+                .getLoginPage()
+                .loginToCafeTown();
         System.out.println();
     }
 }

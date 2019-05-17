@@ -1,25 +1,16 @@
 package Pages;
 
-import DriverManager.DriverHandler;
-import org.openqa.selenium.WebDriver;
-
-import java.util.concurrent.TimeUnit;
+import static DriverManager.DriverHandler.getWebDriver;
 
 public class PageProvider {
 
-    private WebDriver webDriver = DriverHandler.getWebDriver();
-   private LoginPage loginPage;
+    private LoginPage loginPage;
 
-    public void init() {
-        loginPage = new LoginPage(webDriver);
-        webDriver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+    public void initPages() {
+        loginPage = new LoginPage(getWebDriver());
     }
 
-    public void stop() {
-        webDriver.quit();
-    }
-
-    public LoginPage loginPage() {
+    public LoginPage getLoginPage() {
         return loginPage;
     }
 }
