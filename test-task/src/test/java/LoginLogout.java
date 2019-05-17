@@ -1,4 +1,8 @@
+import Pages.CafeTownTestBase;
 import org.testng.annotations.Test;
+
+import static utils.Constants.PASSWORD;
+import static utils.Constants.USER_LOGIN;
 
 /**
  * User: Anton Kiselev
@@ -45,9 +49,6 @@ import org.testng.annotations.Test;
 
 public class LoginLogout extends CafeTownTestBase {
 
-    private static final String LOGIN_NAME = "Luke";
-    private static final String PASSWORD = "Skywalker";
-
     @Test
     private void test_ak_t001() {
         navigateToLoginPage();
@@ -66,8 +67,6 @@ public class LoginLogout extends CafeTownTestBase {
         checkUserIsOnLoginPage();
         //Step 5
         checkUserNameAndPasswordsFieldsEmpty();
-
-
     }
 
     private void checkUserNameAndPasswordsFieldsEmpty() {
@@ -92,7 +91,7 @@ public class LoginLogout extends CafeTownTestBase {
     private void checkHeaderIsCorrect() {
         pageProvider
                 .getEmployeesPage()
-                .checkHeaderIsCorrect(LOGIN_NAME);
+                .checkHeaderIsCorrect(USER_LOGIN);
     }
 
     private void checkUserIsOnEmployeesPage() {
@@ -122,7 +121,7 @@ public class LoginLogout extends CafeTownTestBase {
     private void inputUserName() {
         pageProvider
                 .getLoginPage()
-                .inputToUserNameField(LOGIN_NAME);
+                .inputToUserNameField(USER_LOGIN);
     }
 
     private void checkFieldsAreDisplayedCorrectly() {

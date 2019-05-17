@@ -1,4 +1,5 @@
-import Pages.PageProvider;
+package Pages;
+
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -6,7 +7,8 @@ import static DriverManager.DriverHandler.*;
 
 public class CafeTownTestBase {
 
-    public PageProvider pageProvider = new PageProvider();
+    protected static PageProvider pageProvider
+            = new PageProvider();
 
     @BeforeMethod
     public void setUp() throws Exception {
@@ -29,5 +31,12 @@ public class CafeTownTestBase {
 
     public void navigateToLoginPage() {
         navigateTo("http://cafetownsend-angular-rails.herokuapp.com/");
+    }
+
+    public void loginToCafeTownApp() {
+        navigateToLoginPage();
+        pageProvider.
+                getHelperPage()
+                .loginToCafeTown();
     }
 }

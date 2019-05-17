@@ -18,6 +18,7 @@ public class LoginPage extends BasePage {
     private static final By PASSWORD_LABEL_LOCATOR = By.xpath(".//input[@ng-model='user.password']//..//span");
     private static final By PASSWORD_LOCATOR = By.cssSelector("input[ng-model='user.password']");
     private static final By LOGIN_BUTTON = By.cssSelector("button.main-button");
+    private static final By ERROR_MESSAGE_LOCATOR = By.cssSelector("p.error-message");
 
     public LoginPage(WebDriver wd) {
         super(wd);
@@ -25,6 +26,11 @@ public class LoginPage extends BasePage {
 
     public LoginPage inputToUserNameField(String text) {
         input(getUserNameInputFieldElement(), text);
+        return this;
+    }
+
+    public LoginPage clearUserNameField() {
+        getUserNameInputFieldElement().clear();
         return this;
     }
 
@@ -74,6 +80,12 @@ public class LoginPage extends BasePage {
         return this;
     }
 
+    public LoginPage checkErrorMessageIsDisplayed() {
+        getWebDriverWait().until(visibilityOfElementLocated(ERROR_MESSAGE_LOCATOR));
+        assertEquals(getErrorMessageElement().getText(), "Invalid username or password!");
+        return this;
+    }
+
     //region getters
     private WebElement getUserNameInputFieldElement() {
         return wd.findElement(USER_NAME_INPUT_FIELD_LOCATOR);
@@ -93,6 +105,10 @@ public class LoginPage extends BasePage {
 
     private WebElement getPasswordLabelElement() {
         return wd.findElement(PASSWORD_LABEL_LOCATOR);
+    }
+
+    private WebElement getErrorMessageElement() {
+        return wd.findElement(ERROR_MESSAGE_LOCATOR);
     }
     //endregion
 }
