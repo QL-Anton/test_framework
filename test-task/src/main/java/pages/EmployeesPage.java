@@ -1,10 +1,10 @@
-package Pages;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import static DriverManager.DriverHandler.getWebDriverWait;
+import static driverManager.DriverHandler.getWebDriverWait;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -34,6 +34,11 @@ public class EmployeesPage extends BasePage {
 
     public EmployeesPage clickLogoutButton() {
         getLogoutButtonElement().click();
+        return this;
+    }
+
+    public EmployeesPage clickCreateButton() {
+        getCreateButtonElement().click();
         return this;
     }
 

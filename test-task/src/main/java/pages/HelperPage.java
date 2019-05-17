@@ -1,8 +1,8 @@
-package Pages;
+package pages;
 
 import org.openqa.selenium.WebDriver;
 
-import static DriverManager.DriverHandler.getWebDriver;
+import static driverManager.DriverHandler.getWebDriver;
 
 public class HelperPage extends BasePage {
 

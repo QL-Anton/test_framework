@@ -1,9 +1,9 @@
-package Pages;
+package pages;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-import static DriverManager.DriverHandler.*;
+import static driverManager.DriverHandler.*;
 
 public class CafeTownTestBase {
 

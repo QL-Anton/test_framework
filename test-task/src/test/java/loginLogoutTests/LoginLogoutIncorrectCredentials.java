@@ -1,4 +1,6 @@
-import Pages.CafeTownTestBase;
+package loginLogoutTests;
+
+import pages.CafeTownTestBase;
 import org.testng.annotations.Test;
 
 /**
