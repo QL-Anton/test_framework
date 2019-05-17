@@ -10,10 +10,12 @@ import java.util.concurrent.TimeUnit;
 public class DriverHandler {
 
     private static WebDriver wd;
+    private static WebDriverWait webDriverWait;
 
-    public static void initWebDriver() {
+    public static void initializeDriver() {
         WebDriverManager.chromedriver().setup();
         wd = new ChromeDriver();
+        webDriverWait = new WebDriverWait(wd, 3);
         wd.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     }
 
@@ -26,6 +28,6 @@ public class DriverHandler {
     }
 
     public static WebDriverWait getWebDriverWait() {
-        return new WebDriverWait(getWebDriver(), 5);
+        return webDriverWait;
     }
 }

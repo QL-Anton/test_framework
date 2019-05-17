@@ -1,8 +1,8 @@
 package Pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class BasePage {
 
@@ -12,22 +12,18 @@ public class BasePage {
         this.wd = wd;
     }
 
-    protected void click(By locator) {
-        wd.findElement(locator).click();
-    }
-
-    protected void type(By locator, String text) {
-        click(locator);
+    protected void input(WebElement element, String text) {
+        element.click();
         if (text != null) {
-            String existingText = wd.findElement(locator).getAttribute("value");
+            String existingText = element.getAttribute("value");
             if (!text.equals(existingText)) {
-                wd.findElement(locator).clear();
-                wd.findElement(locator).sendKeys(text);
+                element.clear();
+                element.sendKeys(text);
             }
         }
     }
 
-    public  boolean isAlertPresent() {
+    public boolean isAlertPresent() {
         try {
             wd.switchTo().alert();
             return true;
