@@ -129,7 +129,7 @@ public class CreateNewEmployee extends CafeTownTestBase {
     }
 
     private void checkCreatedEmployeePresentInEmployeesList() {
-        String foundedUserName = pageProvider.getEmployeesPage().findEmployeeByEmployeeData(newEmployeeData);
+        String foundedUserName = pageProvider.getEmployeesPage().findEmployeeUserNameByEmployeeData(newEmployeeData);
         assertEquals(foundedUserName, newEmployeeData.getFirstName() + " " + newEmployeeData.getLastName());
     }
 

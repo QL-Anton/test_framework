@@ -5,6 +5,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import static driverManager.DriverHandler.getWebDriverWait;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 import static org.testng.Assert.assertEquals;
@@ -59,7 +62,7 @@ public class EmployeesPage extends BasePage {
         return this;
     }
 
-    public String findEmployeeByEmployeeData(EmployeeData employeeData) {
+    public String findEmployeeUserNameByEmployeeData(EmployeeData employeeData) {
         return wd.findElements(By.cssSelector("ul#employee-list li"))
                 .stream()
                 .map(WebElement::getText)
@@ -67,6 +70,16 @@ public class EmployeesPage extends BasePage {
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("No employee found with username " + employeeData.getFirstName() + " " + employeeData.getLastName()));
     }
+
+    public void checkEmployeeWasNotCreatedByEmployeeData(EmployeeData employeeData) {
+        List<String> listOfEmployees = wd.findElements(By.cssSelector("ul#employee-list li"))
+                .stream()
+                .map(WebElement::getText)
+                .filter(employeeElement -> employeeElement.equals(employeeData.getFirstName() + " " + employeeData.getLastName()))
+                .collect(Collectors.toList());
+        assertTrue(listOfEmployees.isEmpty());
+    }
+
 
     //region getters
     private WebElement getCreateButtonElement() {

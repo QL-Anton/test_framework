@@ -107,6 +107,11 @@ public class CreateNewEmployeePage extends BasePage {
         return this;
     }
 
+    public CreateNewEmployeePage clickCancelButton() {
+        getCancelButtonElement().click();
+        return this;
+    }
+
     public CreateNewEmployeePage checkCancelButtonIsEnabled() {
         assertTrue(getCancelButtonElement().isEnabled());
         return this;
