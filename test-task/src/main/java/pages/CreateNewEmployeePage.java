@@ -27,7 +27,7 @@ public class CreateNewEmployeePage extends BasePage {
     private static final By EMAIL_FIELD_LOCATOR = By.cssSelector("input[ng-model='selectedEmployee.email']");
     private static final By EMAIL_LABEL_LOCATOR = By.xpath("//input[@ng-model='selectedEmployee.email']//..//span");
 
-    public CreateNewEmployeePage(WebDriver wd) {
+    CreateNewEmployeePage(WebDriver wd) {
         super(wd);
     }
 

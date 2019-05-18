@@ -42,7 +42,7 @@ public class CreateNewEmployeeDiscardChanges extends CafeTownTestBase {
     private void checkEmployeeWasNotCreated() {
         pageProvider
                 .getEmployeesPage()
-                .checkEmployeeWasNotCreatedByEmployeeData(employeeData);
+                .checkEmployeeIsNotPresentedOnTheListByEmployeeData(employeeData);
     }
 
     private void checkUserIsOnEmployeesPage() {

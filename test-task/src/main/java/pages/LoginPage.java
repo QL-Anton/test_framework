@@ -20,7 +20,7 @@ public class LoginPage extends BasePage {
     private static final By LOGIN_BUTTON = By.cssSelector("button.main-button");
     private static final By ERROR_MESSAGE_LOCATOR = By.cssSelector("p.error-message");
 
-    public LoginPage(WebDriver wd) {
+    LoginPage(WebDriver wd) {
         super(wd);
     }
 

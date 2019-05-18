@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -60,8 +61,18 @@ public class EmployeesPage extends BasePage {
         return this;
     }
 
+    public EmployeesPage checkConfirmationTextIsCorrect(EmployeeData employeeData) {
+        assertEquals(wd.switchTo().alert().getText(), String.format("Are you sure you want to delete %s %s?", employeeData.getFirstName(), employeeData.getLastName()));
+        return this;
+    }
+
     public EmployeesPage confirmDeletion() {
         wd.switchTo().alert().accept();
+        return this;
+    }
+
+    public EmployeesPage dismissDeletion() {
+        wd.switchTo().alert().dismiss();
         return this;
     }
 
@@ -100,12 +111,13 @@ public class EmployeesPage extends BasePage {
                 .orElseThrow(() -> new RuntimeException("No employee found with username " + employeeData.getFirstName() + " " + employeeData.getLastName()));
     }
 
-    public void checkEmployeeWasNotCreatedByEmployeeData(EmployeeData employeeData) {
+    public void checkEmployeeIsNotPresentedOnTheListByEmployeeData(EmployeeData employeeData) {
         List<String> listOfEmployees = wd.findElements(By.cssSelector("ul#employee-list li"))
                 .stream()
                 .map(WebElement::getText)
                 .filter(employeeElement -> employeeElement.equals(employeeData.getFirstName() + " " + employeeData.getLastName()))
                 .collect(Collectors.toList());
+
         assertTrue(listOfEmployees.isEmpty());
     }
 

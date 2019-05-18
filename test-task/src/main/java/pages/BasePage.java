@@ -9,9 +9,9 @@ import static org.testng.Assert.assertTrue;
 
 public class BasePage {
 
-    protected WebDriver wd;
+    WebDriver wd;
 
-    public BasePage(WebDriver wd) {
+    BasePage(WebDriver wd) {
         this.wd = wd;
     }
 
