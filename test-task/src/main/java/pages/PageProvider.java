@@ -34,7 +34,7 @@ public class PageProvider {
         return createNewEmployeePage;
     }
 
-    public EditEmployeePage getEditEmployeePageEmployeePage() {
+    public EditEmployeePage getEditEmployeePage() {
         return editEmployeePage;
     }
 }

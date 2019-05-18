@@ -83,20 +83,20 @@ public class CreateNewEmployee extends CafeTownTestBase {
 
     private void checkUserIsOnEditEmployeePage() {
         pageProvider
-                .getEditEmployeePageEmployeePage()
+                .getEditEmployeePage()
                 .checkUserIsOnEditEmployeePage();
     }
 
     private void checkEmployeeCreatedCorrectly() {
         assertEquals(pageProvider
-                .getEditEmployeePageEmployeePage()
+                .getEditEmployeePage()
                 .getEmployeeDataFromEditDetailsPage(), newEmployeeData);
     }
 
     @AfterMethod
     private void deleteCreatedEmployee() {
         pageProvider
-                .getEditEmployeePageEmployeePage()
+                .getEditEmployeePage()
                 .clickDeleteButton()
                 .confirmDeletion();
     }

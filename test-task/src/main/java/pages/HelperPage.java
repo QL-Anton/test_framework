@@ -1,5 +1,6 @@
 package pages;
 
+import model.EmployeeData;
 import org.openqa.selenium.WebDriver;
 
 import static driverManager.DriverHandler.getWebDriver;
@@ -29,4 +30,17 @@ public class HelperPage extends BasePage {
         createNewEmployeePage
                 .checkUserIsOnCreateNewEmployeePage();
     }
+
+    public void createNewEmployee(EmployeeData employeeData) {
+        goToCreatePage();
+        createNewEmployeePage
+                .inputToFirstNameField(employeeData.getFirstName())
+                .inputToLastNameField(employeeData.getLastName())
+                .inputToStartDateField(employeeData.getStartDate())
+                .inputToEmailField(employeeData.getEmail())
+                .clickAddButton();
+        employeesPage
+                .checkUserIsOnEmployeesPage();
+    }
 }
+

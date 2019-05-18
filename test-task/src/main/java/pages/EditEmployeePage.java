@@ -53,12 +53,37 @@ public class EditEmployeePage extends BasePage {
                 .setEmail(getEmailFieldElement().getAttribute("value"));
     }
 
+    public EditEmployeePage inputToFirstNameField(String text) {
+        input(getFirstNameFieldElement(), text);
+        return this;
+    }
+
+    public EditEmployeePage inputToLastNameField(String text) {
+        input(getLastNameFieldElement(), text);
+        return this;
+    }
+
+    public EditEmployeePage inputToStartDateField(String text) {
+        input(getStartDateFieldElement(), text);
+        return this;
+    }
+
+    public EditEmployeePage inputToEmailField(String text) {
+        input(getEmailFieldElement(), text);
+        return this;
+    }
+
+    public EditEmployeePage clickUpdateButton() {
+        getUpdateButtonElement().click();
+        return this;
+    }
+
     //region getters
     private WebElement getCancelButtonElement() {
         return wd.findElement(CANCEL_BUTTON_LOCATOR);
     }
 
-    private WebElement getAUpdateButtonElement() {
+    private WebElement getUpdateButtonElement() {
         return wd.findElement(UPDATE_BUTTON_LOCATOR);
     }
 
