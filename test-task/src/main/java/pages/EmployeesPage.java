@@ -4,6 +4,7 @@ import model.EmployeeData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -61,6 +62,16 @@ public class EmployeesPage extends BasePage {
 
     public EmployeesPage confirmDeletion() {
         wd.switchTo().alert().accept();
+        return this;
+    }
+
+    public EmployeesPage doubleClickOnEmployee(EmployeeData employeeData) {
+        Actions action = new Actions(wd);
+        action
+                .moveToElement(
+                        wd.findElement(By.xpath(String.format(".//li[contains(text(),'%s %s')]", employeeData.getFirstName(), employeeData.getLastName()))))
+                .doubleClick()
+                .perform();
         return this;
     }
 
