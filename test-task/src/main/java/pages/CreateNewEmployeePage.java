@@ -143,12 +143,12 @@ public class CreateNewEmployeePage extends BasePage {
     }
 
     public CreateNewEmployeePage checkEmailFieldValidationSuccessful(){
-        checkValidationFieldIsSuccessful(getStartDateFieldElement());
+        checkValidationFieldIsSuccessful(getEmailFieldElement());
         return this;
     }
 
     public CreateNewEmployeePage checkEmailFieldValidationFailed(){
-        checkValidationFieldIsFailed(getStartDateFieldElement());
+        checkValidationFieldIsFailed(getEmailFieldElement());
         return this;
     }
 
