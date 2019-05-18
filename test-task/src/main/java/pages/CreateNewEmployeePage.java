@@ -128,22 +128,22 @@ public class CreateNewEmployeePage extends BasePage {
     }
 
     public CreateNewEmployeePage checkFirstNameFieldValidationSuccessful(){
-        checkValidationFieldIsSuccessful(getStartDateFieldElement());
+        checkValidationFieldIsSuccessful(getFirstNameFieldElement());
         return this;
     }
 
     public CreateNewEmployeePage checkFirstNameFieldValidationFailed(){
-        checkValidationFieldIsFailed(getStartDateFieldElement());
+        checkValidationFieldIsFailed(getFirstNameFieldElement());
         return this;
     }
 
     public CreateNewEmployeePage checkLastNameFieldValidationSuccessful(){
-        checkValidationFieldIsSuccessful(getStartDateFieldElement());
+        checkValidationFieldIsSuccessful(getLastNameFieldElement());
         return this;
     }
 
     public CreateNewEmployeePage checkLastNameFieldValidationFailed(){
-        checkValidationFieldIsFailed(getStartDateFieldElement());
+        checkValidationFieldIsFailed(getLastNameFieldElement());
         return this;
     }
 

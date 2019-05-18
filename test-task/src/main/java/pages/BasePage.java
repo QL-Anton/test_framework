@@ -36,10 +36,10 @@ public class BasePage {
     }
 
     public void checkValidationFieldIsFailed(WebElement element) {
-        assertTrue(element.getAttribute("className").contains("ng-invalid"));
+        assertTrue(element.getAttribute("className").contains("ng-invalid"),"Validation of field isn't failed!");
     }
 
     public void checkValidationFieldIsSuccessful(WebElement element) {
-        assertFalse(element.getAttribute("className").contains("ng-invalid"));
+        assertFalse(element.getAttribute("className").contains("ng-invalid"),"Validation of field isn't successful!");
     }
 }
