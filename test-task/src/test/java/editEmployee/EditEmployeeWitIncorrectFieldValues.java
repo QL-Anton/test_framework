@@ -1,4 +1,4 @@
-package editEmployeeTests;
+package editEmployee;
 
 import model.EmployeeData;
 import model.EmployeeDataBuilder;

@@ -1,4 +1,4 @@
-package deleteEmployeeTests;
+package deleteEmployee;
 
 import org.testng.annotations.Test;
 import pages.CafeTownTestBase;

@@ -15,6 +15,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElem
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+/*Class for Cafe Town Home page */
 public class EmployeesPage extends BasePage {
 
     private static final String EMPLOYEES_PART_URL = "employees";

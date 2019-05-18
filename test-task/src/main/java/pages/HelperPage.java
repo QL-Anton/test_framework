@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 import static driverManager.DriverHandler.getWebDriver;
 
+/*Class for common methods  */
 public class HelperPage extends BasePage {
 
     private LoginPage loginPage = new LoginPage(getWebDriver());

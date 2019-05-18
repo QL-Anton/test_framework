@@ -1,4 +1,4 @@
-package createNewEmpoyeeTests;
+package createNewEmpoyee;
 
 import model.EmployeeData;
 import model.EmployeeDataBuilder;

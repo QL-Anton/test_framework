@@ -12,6 +12,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElem
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+/*Class for Create New Employee page */
 public class CreateNewEmployeePage extends BasePage {
 
     private static final String CREATE_EMPLOYEE_URL_PART = "new";

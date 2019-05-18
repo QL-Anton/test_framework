@@ -9,6 +9,7 @@ import static driverManager.DriverHandler.getWebDriverWait;
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 import static org.testng.Assert.assertTrue;
 
+/*Class for Edit New Employee page */
 public class EditEmployeePage extends BasePage {
 
     private static final String EDIT_EMPLOYEE_PART_URL = "edit";

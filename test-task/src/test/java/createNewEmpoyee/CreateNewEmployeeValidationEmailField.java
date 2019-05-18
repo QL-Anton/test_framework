@@ -1,4 +1,4 @@
-package createNewEmpoyeeTests;
+package createNewEmpoyee;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.testng.annotations.Test;

@@ -1,4 +1,4 @@
-package deleteEmployeeTests;
+package deleteEmployee;
 
 import model.EmployeeData;
 import model.EmployeeDataBuilder;

@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphanumeric;
 
+/**Class for generating employeeData */
 public class EmployeeDataBuilder {
 
     private String firstName = randomAlphabetic(10);

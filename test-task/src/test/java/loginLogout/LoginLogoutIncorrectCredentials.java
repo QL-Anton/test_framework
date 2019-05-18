@@ -1,4 +1,4 @@
-package loginLogoutTests;
+package loginLogout;
 
 import pages.CafeTownTestBase;
 import org.testng.annotations.Test;

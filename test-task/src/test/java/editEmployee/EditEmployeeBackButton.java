@@ -1,4 +1,4 @@
-package editEmployeeTests;
+package editEmployee;
 
 import org.testng.annotations.Test;
 import pages.CafeTownTestBase;

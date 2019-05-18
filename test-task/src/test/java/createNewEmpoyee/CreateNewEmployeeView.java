@@ -1,4 +1,4 @@
-package createNewEmpoyeeTests;
+package createNewEmpoyee;
 
 import org.testng.annotations.Test;
 import pages.CafeTownTestBase;
