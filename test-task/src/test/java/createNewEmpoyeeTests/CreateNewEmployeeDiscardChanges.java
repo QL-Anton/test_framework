@@ -1,6 +1,7 @@
 package createNewEmpoyeeTests;
 
 import model.EmployeeData;
+import model.EmployeeDataBuilder;
 import org.testng.annotations.Test;
 import pages.CafeTownTestBase;
 
@@ -26,7 +27,7 @@ import pages.CafeTownTestBase;
 
 public class CreateNewEmployeeDiscardChanges extends CafeTownTestBase {
 
-    private EmployeeData employeeData = new EmployeeData();
+    private EmployeeData employeeData = new EmployeeDataBuilder().build();
 
     @Test
     private void test_ak_t007() {
