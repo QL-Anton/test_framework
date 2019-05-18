@@ -2,9 +2,11 @@ package createNewEmpoyeeTests;
 
 import model.EmployeeData;
 import model.EmployeeDataBuilder;
-import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 import pages.CafeTownTestBase;
+
+import static org.testng.Assert.assertEquals;
 
 /**
  * User: Anton Kiselev
@@ -50,50 +52,85 @@ import pages.CafeTownTestBase;
 
 public class CreateNewEmployee extends CafeTownTestBase {
 
-    EmployeeData newEmployeeData = new EmployeeDataBuilder().build();
+    private EmployeeData newEmployeeData = new EmployeeDataBuilder().build();
 
     @Test
-    private void test_ak_t003() {
+    private void test_ak_t004() {
         navigateToLoginPage();
         loginToCafeTown();
         clickCreateButton();
         checkUserIsOnCreateNewEmployeePage();
         //Step 1
+        fillRequiredFields();
+        checkAddButtonIsEnabled();
+        //Step 2
+        clickAddButton();
+        checkUserIsOnEmployeesPage();
+        //Step 3
+        checkCreatedEmployeePresentInEmployeesList();
+        //Step 4
+        navigateToEditEmployeePage();
+        checkUserIsOnEditEmployeePage();
+        checkEmployeeCreatedCorrectly();
+    }
+
+    private void navigateToEditEmployeePage() {
+        pageProvider
+                .getEmployeesPage()
+                .clickOnEmployeeByEmployeeData(newEmployeeData)
+                .clickEditButton();
+    }
+
+    private void checkUserIsOnEditEmployeePage() {
+        pageProvider
+                .getEditEmployeePageEmployeePage()
+                .checkUserIsOnEditEmployeePage();
+    }
+
+    private void checkEmployeeCreatedCorrectly() {
+        assertEquals(pageProvider
+                .getEditEmployeePageEmployeePage()
+                .getEmployeeDataFromEditDetailsPage(), newEmployeeData);
+    }
+
+    @AfterMethod
+    private void deleteCreatedEmployee() {
+        pageProvider
+                .getEditEmployeePageEmployeePage()
+                .clickDeleteButton()
+                .confirmDeletion();
+    }
+
+    private void checkUserIsOnEmployeesPage() {
+        pageProvider
+                .getEmployeesPage()
+                .checkUserIsOnEmployeesPage();
+    }
+
+    private void clickAddButton() {
+        pageProvider
+                .getCreateNewEmployeePage()
+                .clickAddButton();
+    }
+
+    private void checkAddButtonIsEnabled() {
+        pageProvider
+                .getCreateNewEmployeePage()
+                .checkAddButtonIsEnabled();
+    }
+
+    private void fillRequiredFields() {
         pageProvider
                 .getCreateNewEmployeePage()
                 .inputToFirstNameField(newEmployeeData.getFirstName())
                 .inputToLastNameField(newEmployeeData.getLastName())
                 .inputToStartDateField(newEmployeeData.getStartDate())
                 .inputToEmailField(newEmployeeData.getEmail());
-        pageProvider
-                .getCreateNewEmployeePage()
-                .checkAddButtonIsEnabled();
-        //Step 2
-        pageProvider
-                .getCreateNewEmployeePage()
-                .clickAddButton();
-        pageProvider
-                .getEmployeesPage()
-                .checkUserIsOnEmployeesPage();
-        Assert.assertTrue(pageProvider
-                .getEmployeesPage().getEmployees().contains(newEmployeeData.getFirstName() + " " + newEmployeeData.getLastName()));
     }
 
-    private void checkFieldsAreDisplayedCorrectly() {
-        pageProvider
-                .getCreateNewEmployeePage()
-                .checkFirstNameLabelIsCorrect()
-                .checkFirsNameFieldHasText("")
-                .checkLastNameLabelIsCorrect()
-                .checkLastNameFieldHasText("")
-                .checkStartDateLabelIsCorrect()
-                .checkStartDateFieldHasText("")
-                .checkEmailLabelIsCorrect()
-                .checkEmailFieldHasText("")
-                .checkAddButtonIsDisplayed()
-                .checkAddButtonIsEnabled()
-                .checkCancelButtonIsDisplayed()
-                .checkCancelButtonIsEnabled();
+    private void checkCreatedEmployeePresentInEmployeesList() {
+        String foundedUserName = pageProvider.getEmployeesPage().findEmployeeByEmployeeData(newEmployeeData);
+        assertEquals(foundedUserName, newEmployeeData.getFirstName() + " " + newEmployeeData.getLastName());
     }
 
     private void checkUserIsOnCreateNewEmployeePage() {

@@ -8,12 +8,14 @@ public class PageProvider {
     private EmployeesPage employeesPage;
     private HelperPage helperPage;
     private CreateNewEmployeePage createNewEmployeePage;
+    private EditEmployeePage editEmployeePage;
 
     public void initPages() {
         loginPage = new LoginPage(getWebDriver());
         employeesPage = new EmployeesPage(getWebDriver());
         helperPage = new HelperPage(getWebDriver());
         createNewEmployeePage = new CreateNewEmployeePage(getWebDriver());
+        editEmployeePage = new EditEmployeePage(getWebDriver());
     }
 
     public LoginPage getLoginPage() {
@@ -30,5 +32,9 @@ public class PageProvider {
 
     public CreateNewEmployeePage getCreateNewEmployeePage() {
         return createNewEmployeePage;
+    }
+
+    public EditEmployeePage getEditEmployeePageEmployeePage() {
+        return editEmployeePage;
     }
 }
