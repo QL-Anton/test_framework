@@ -112,6 +112,46 @@ public class CreateNewEmployeePage extends BasePage {
         return this;
     }
 
+    public CreateNewEmployeePage checkStarDateFieldValidationSuccessful(){
+        checkValidationFieldIsSuccessful(getStartDateFieldElement());
+        return this;
+    }
+
+    public CreateNewEmployeePage checkStarDateFieldValidationFailed(){
+        checkValidationFieldIsFailed(getStartDateFieldElement());
+        return this;
+    }
+
+    public CreateNewEmployeePage checkFirstNameFieldValidationSuccessful(){
+        checkValidationFieldIsSuccessful(getStartDateFieldElement());
+        return this;
+    }
+
+    public CreateNewEmployeePage checkFirstNameFieldValidationFailed(){
+        checkValidationFieldIsFailed(getStartDateFieldElement());
+        return this;
+    }
+
+    public CreateNewEmployeePage checkLastNameFieldValidationSuccessful(){
+        checkValidationFieldIsSuccessful(getStartDateFieldElement());
+        return this;
+    }
+
+    public CreateNewEmployeePage checkLastNameFieldValidationFailed(){
+        checkValidationFieldIsFailed(getStartDateFieldElement());
+        return this;
+    }
+
+    public CreateNewEmployeePage checkEmailFieldValidationSuccessful(){
+        checkValidationFieldIsSuccessful(getStartDateFieldElement());
+        return this;
+    }
+
+    public CreateNewEmployeePage checkEmailFieldValidationFailed(){
+        checkValidationFieldIsFailed(getStartDateFieldElement());
+        return this;
+    }
+
     public CreateNewEmployeePage checkAddButtonIsDisplayed() {
         assertTrue(getAddButtonElement().isDisplayed());
         return this;

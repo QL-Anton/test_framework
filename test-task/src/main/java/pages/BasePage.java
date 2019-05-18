@@ -4,6 +4,9 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+
 public class BasePage {
 
     protected WebDriver wd;
@@ -30,5 +33,13 @@ public class BasePage {
         } catch (NoAlertPresentException e) {
             return false;
         }
+    }
+
+    public void checkValidationFieldIsFailed(WebElement element) {
+        assertTrue(element.getAttribute("className").contains("ng-invalid"));
+    }
+
+    public void checkValidationFieldIsSuccessful(WebElement element) {
+        assertFalse(element.getAttribute("className").contains("ng-invalid"));
     }
 }
