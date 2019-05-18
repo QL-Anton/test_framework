@@ -24,6 +24,7 @@ public class EditEmployeePage extends BasePage {
     private static final By START_DATE_LABEL_LOCATOR = By.xpath("//input[@ng-model='selectedEmployee.startDate']//..//span");
     private static final By EMAIL_FIELD_LOCATOR = By.cssSelector("input[ng-model='selectedEmployee.email']");
     private static final By EMAIL_LABEL_LOCATOR = By.xpath("//input[@ng-model='selectedEmployee.email']//..//span");
+    private static final By BACK_BUTTON_LOCATOR = By.xpath(".//a[text()='Back']");
 
     public EditEmployeePage(WebDriver wd) {
         super(wd);
@@ -37,6 +38,11 @@ public class EditEmployeePage extends BasePage {
 
     public EditEmployeePage clickDeleteButton() {
         getDeleteButtonElement().click();
+        return this;
+    }
+
+    public EditEmployeePage clickBackButton() {
+        getBackButtonElement().click();
         return this;
     }
 
@@ -121,6 +127,10 @@ public class EditEmployeePage extends BasePage {
 
     private WebElement getEmailFieldElement() {
         return wd.findElement(EMAIL_FIELD_LOCATOR);
+    }
+
+    private WebElement getBackButtonElement() {
+        return wd.findElement(BACK_BUTTON_LOCATOR);
     }
     //endregion
 }

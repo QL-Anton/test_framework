@@ -23,7 +23,7 @@ public class EmployeesPage extends BasePage {
     private static final By LOGOUT_BUTTON_LOCATOR = By.cssSelector("p[ng-click='logout()']");
     private static final By EDIT_BUTTON_LOCATOR = By.cssSelector("#bEdit");
     private static final By DELETE_BUTTON_LOCATOR = By.cssSelector("#bDelete");
-    private static final By EMPLOYEE_LOCATOR = By.cssSelector("#employee-list li");
+    private static final By EMPLOYEES_LIST_LOCATOR = By.cssSelector("#employee-list li");
 
     public EmployeesPage(WebDriver wd) {
         super(wd);
@@ -75,6 +75,12 @@ public class EmployeesPage extends BasePage {
         return this;
     }
 
+    public EmployeesPage clickFirstEmployee() {
+        List<WebElement> elements = getEmployeeListLocator();
+        elements.get(0).click();
+        return this;
+    }
+
     public EmployeesPage clickOnEmployeeByFirstAndLastName(String firstName, String lastName) {
         wd.findElement(By.xpath(String.format(".//li[contains(text(),'%s %s')]", firstName, lastName))).click();
         return this;
@@ -122,6 +128,10 @@ public class EmployeesPage extends BasePage {
 
     private WebElement getDeleteButtonElement() {
         return wd.findElement(DELETE_BUTTON_LOCATOR);
+    }
+
+    private List<WebElement> getEmployeeListLocator() {
+        return wd.findElements(EMPLOYEES_LIST_LOCATOR);
     }
     //endregion
 }
